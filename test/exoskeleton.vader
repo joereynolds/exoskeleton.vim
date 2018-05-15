@@ -1,0 +1,8 @@
+Given (A buffer with a single line command):
+  {{strftime('%Y')}}
+
+Do (Evaluate the contents);
+  exoskeleton#evaluate_contents('{{strftime("%Y")}}')
+
+Expect (The result to be evaluated and placed in the buffer):
+  2018
