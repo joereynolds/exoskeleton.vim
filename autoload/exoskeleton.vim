@@ -1,4 +1,3 @@
-let g:exoskeleton_template_directory = get(g:, 'exoskeleton_template_directory', '~/.vim/exoskeleton/places/')
 
 function! exoskeleton#is_valid_directory(directory)
     return isdirectory(a:directory)
@@ -18,6 +17,3 @@ function! exoskeleton#evaluate_contents(contents)
     let l:cleaned_contents = substitute(l:contents, '}}', '', 'g')
     put =eval(l:cleaned_contents)
 endfunction
-
-augroup exoskeleton
-augroup END
