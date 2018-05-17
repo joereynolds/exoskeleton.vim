@@ -1,8 +1,25 @@
-Given (A buffer with a single line command):
-  {{strftime('%Y')}}
+Execute (to see if we can evalue a placeholder at the end of a line);
+  let actual = exoskeleton#evaluate_placeholders('This year is {{strftime("%Y")}}')
+  let expected = "This year is 2018"
 
-Do (Evaluate the contents);
-  exoskeleton#evaluate_contents('{{strftime("%Y")}}')
+  AssertEqual actual, expected
 
-Expect (The result to be evaluated and placed in the buffer):
-  2018
+Execute (to see if we can evaluate a placeholder in the middle of a string);
+  let actual = exoskeleton#evaluate_placeholders('This year is {{strftime("%Y")}} it is')
+  let expected = "This year is 2018 it is"
+
+  AssertEqual actual, expected
+
+Execute (to see if we evaluate more complicated placeholders);
+  let actual = exoskeleton#evaluate_placeholders('class {{fnamemodify("app/Models/Area.php", ":t:r")}}')
+  let expected = 'class Area'
+
+  AssertEqual actual, expected
+
+
+" Tests to write later... I'm sorry TDD :(
+
+" - Test the augroups are fired when we create a new buffer
+"  - Test anything with the extension .exo.* is given an exoskeleton filetype
+"  - Test we convert an-exoskeleton-path into/a/normal/one
+
