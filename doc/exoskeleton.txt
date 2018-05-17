@@ -1,1 +1,6 @@
-Placeholder
+*exoskeleton.txt*    For Vim version ?.?     Last Change 17th May 2018
+*exoskeleton*
+
+exoskeleton - Skeleton improved!
+
+vim:tw=78:ts=8:ft=help:norl:
