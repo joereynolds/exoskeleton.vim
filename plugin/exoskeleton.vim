@@ -1,6 +1,6 @@
 let g:exoskeleton_start_delimiter = '{{'
 let g:exoskeleton_end_delimiter = '}}'
-let g:exoskeleton_base_directory = get(g:, 'exoskeleton_base_directory', '~/.vim/exoskeleton/')
+let g:exoskeleton_base_directory = get(g:, 'exoskeleton_base_directory', '/home/joe/.vim/exoskeleton/')
 let g:exoskeleton_ft_directory = g:exoskeleton_base_directory . 'ft/'
 let g:exoskeleton_place_directory = g:exoskeleton_base_directory . 'place/'
 
@@ -13,7 +13,7 @@ augroup exoskeleton_ft
     for filepath in glob(g:exoskeleton_ft_directory . '*', '', 1)
         let filename = fnamemodify(filepath, ':t')
         let extension = fnamemodify(filepath, ':e')
-        execute 'autocmd BufNewFile *.' . extension . ' 0 read' . g:exoskeleton_ft_directory . filename
+        execute 'autocmd BufNewFile *.' . extension . ' :call exoskeleton#insert_content("' . g:exoskeleton_ft_directory . filename . '")'
     endfor
 augroup END
 

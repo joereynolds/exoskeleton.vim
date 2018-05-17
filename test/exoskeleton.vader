@@ -1,4 +1,4 @@
-Execute (to see if we can evalue a placeholder at the end of a line);
+Execute (to see if we can evaluate a placeholder at the end of a line);
   let actual = exoskeleton#evaluate_placeholders('This year is {{strftime("%Y")}}')
   let expected = "This year is 2018"
 
@@ -10,16 +10,23 @@ Execute (to see if we can evaluate a placeholder in the middle of a string);
 
   AssertEqual actual, expected
 
-Execute (to see if we evaluate more complicated placeholders);
+Execute (to see if we can evaluate more complicated placeholders);
   let actual = exoskeleton#evaluate_placeholders('class {{fnamemodify("app/Models/Area.php", ":t:r")}}')
   let expected = 'class Area'
 
   AssertEqual actual, expected
 
+Execute (to see if a string without a placeholder does not throw an error);
+  let actual = exoskeleton#evaluate_placeholders('This is a plain old string')
+  let expected = 'This is a plain old string'
+
+  AssertEqual actual, expected
+
 
 " Tests to write later... I'm sorry TDD :(
-
 " - Test the augroups are fired when we create a new buffer
-"  - Test anything with the extension .exo.* is given an exoskeleton filetype
-"  - Test we convert an-exoskeleton-path into/a/normal/one
+" - Test anything with the extension .exo.* is given an exoskeleton filetype
+" - Test we convert an-exoskeleton-path into/a/normal/one
+" - Test a multiline template
+" - Test a single line with two templates on it
 
