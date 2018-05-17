@@ -2,7 +2,9 @@
 # Exoskeleton - Skeleton improved
 
 I found the skeleton feature in Vim (`:help skeleton`) a bit lacking.
+
 I've extended it in a way that enables custom directories to be treated
+
 in a specific way and for you to embed vimscript in as a template.
 
 Here we go!
@@ -13,6 +15,7 @@ There are two kinds of templates `ft` and `place`.
 
 `ft` is the traditional skeleton that you're used to, but this time with vimscript!
      Dump your `ft` templates in `~/.vim/exoskeleton/ft` e.g. `~/.vim/exoskeleton/ft/test.php`
+     
 `place` is a mapping to a directory on your filesystem, this is mega handy for the newer
          frameworks that are cropping up and force you to a specific structure.
          Dump your `place` templates in `~/.vim/exoskeleton/place`
