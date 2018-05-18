@@ -64,18 +64,33 @@ The files in here are: ./Desktop
 
 ## place examples
 
+(Nested in ~/.vim/exoskeleton/place/home-joe-code-models)
+
 ```
 <?php
 
-namespace Starbound\Models\Eloquent;
-
-use Illuminate\Database\Eloquent\Model;
-
-class {{expand('%:r')}} extends Model
-{
-    protected $table = 'TODO';
-
-    protected $primaryKey = 'TODO';
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
 }
 
+class {{expand('%:t:r')}} extends CI_Model
+{
+
+}
+```
+
+Transforms to 
+(assuming the filename is MyModel.php)
+
+```
+<?php
+
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
+
+class MyModel extends CI_Model
+{
+
+}
 ```
