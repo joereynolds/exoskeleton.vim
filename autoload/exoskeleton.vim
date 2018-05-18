@@ -51,5 +51,3 @@ function! exoskeleton#insert_content(template)
     normal! ggdG
     put! =l:string_end_result
 endfunction
-
-"get_contents_for_template > evaluate_placeholder > insert_content"

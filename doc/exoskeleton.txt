@@ -1,6 +1,66 @@
-*exoskeleton.txt*    For Vim version ?.?     Last Change 17th May 2018
+*exoskeleton.txt*    For Vim version 7.4     Last Change 17th May 2018
 *exoskeleton*
 
 exoskeleton - Skeleton improved!
+
+INTRODUCTION                                                        *exoskeleton*
+
+A plugin providing skeleton-like templating, embedding
+of vimscript, and support for custom directories.
+
+
+===============================================================================
+1. Global Options                                           *exoskeleton-options*
+
+`g:exoskeleton_base_directory`
+(default '~/.vim/exoskeleton/')
+
+    The base directory where exoskeleton templates are stored.
+
+    `let g:exoskeleton_base_directory = '/home/john/custom/directory'`
+
+===============================================================================
+2. Templates                                              *exoskeleton-templates*
+
+Templates for exoskeleton are stored in two places.
+
+Assuming the base directory of skeleton is the default,
+they are stored in
+    `~/.vim/exoskeleton/ft`
+and
+    `~/.vim/exoskeleton/place`
+
+FT TEMPLATES                                                     *exoskeleton-ft*
+
+An ft template is a file stored in the `ft` directory of exoskeleton
+(~/.vim/skeleton).
+
+Storing a file in here will be immediately evaluated when a file of that type
+is created.
+
+i.e. If we have the following file:
+
+    `~/.vim/exoskeleton/ft/exoskeleton.vim`
+
+Any `.vim` file created will contain the contents, and evaluated vimscript of `exoskeleton.vim`.
+
+Note that the filename can be anything, only the file extension is important.
+
+
+PLACE TEMPLATES                                               *exoskeleton-place*
+
+A place template is a template dependent on directory rather than filetype.
+A place template is an `exoskeleton` file inside the `place` directory of
+exoskeleton (~/.vim/exoskeleton/place). It needs to be mapped to
+the directory you wish to apply it to via the filename.
+
+i.e. If we want to always insert a template in ~/code/models/
+
+We would create the following file:
+
+    `~/.vim/exoskeleton/place/home-joe-code-models/exoskeleton`
+
+Any file created within `~/code/models/` will now contain the contents and
+evaluated vimscript of the `exoskeleton` file.
 
 vim:tw=78:ts=8:ft=help:norl:
