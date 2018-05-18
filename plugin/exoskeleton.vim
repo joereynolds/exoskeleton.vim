@@ -1,5 +1,5 @@
-let g:exoskeleton_start_delimiter = '{{'
-let g:exoskeleton_end_delimiter = '}}'
+let g:exoskeleton_start_delimiter = get(g:, 'exoskeleton_start_delimiter', '{{')
+let g:exoskeleton_end_delimiter = get(g:, 'exoskeleton_end_delimiter', '}}')
 let g:exoskeleton_base_directory = get(g:, 'exoskeleton_base_directory', expand('~/.vim/exoskeleton/'))
 let g:exoskeleton_ft_directory = g:exoskeleton_base_directory . 'ft/'
 let g:exoskeleton_place_directory = g:exoskeleton_base_directory . 'place/'

@@ -20,19 +20,21 @@ endfunction
 "   This year is 2018
 " Note that it takes a single line of a file, not the entire file.
 function! exoskeleton#evaluate_placeholders(contents)
+    execute "let l:match_pattern = '" . g:exoskeleton_start_delimiter . ".*" . g:exoskeleton_end_delimiter . "'"
+
     "Get just the command to evaluate including {{'s"
-    let l:command = matchstr(a:contents, '{{.*}}')
+    let l:command = matchstr(a:contents, l:match_pattern)
 
     "If there's nothing to evaluate, just return the string
     if l:command ==# ""
         return a:contents
     endif
 
-    let l:command_no_left_braces = substitute(l:command, '{{', '', 'g')
-    let l:command_no_braces = substitute(l:command_no_left_braces, '}}', '', 'g')
+    let l:command_no_left_braces = substitute(l:command, g:exoskeleton_start_delimiter, '', 'g')
+    let l:command_no_braces = substitute(l:command_no_left_braces, g:exoskeleton_end_delimiter, '', 'g')
     let l:command_result = eval(l:command_no_braces)
 
-    return substitute(a:contents, '{{.*}}', l:command_result, '')
+    return substitute(a:contents, l:match_pattern, l:command_result, '')
 endfunction
 
 function! exoskeleton#insert_content(template)

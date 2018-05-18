@@ -22,6 +22,19 @@ Execute (to see if a string without a placeholder does not throw an error);
 
   AssertEqual actual, expected
 
+Execute (to see if placeholders are configurable);
+  let g:exoskeleton_start_delimiter = '\[\['
+  let g:exoskeleton_end_delimiter = '\]\]'
+
+  let actual = exoskeleton#evaluate_placeholders('class [[fnamemodify("app/Models/Area.php", ":t:r")]]')
+  let expected = 'class Area'
+
+  AssertEqual actual, expected
+
+  "Reset them back afterwards
+  let g:exoskeleton_start_delimiter = '{{'
+  let g:exoskeleton_end_delimiter = '}}'
+
 
 " Tests to write later... I'm sorry TDD :(
 " - Test the augroups are fired when we create a new buffer
