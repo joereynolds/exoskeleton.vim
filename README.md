@@ -30,14 +30,18 @@ The year is {{strftime("%Y")}}
 
 This string has no placeholder
 
-The files in here are: {{glob("./*")}}
+The files in here are: 
+{{glob("./*")}}
 ```
 Transforms to
 ```
 Copyright 2018
 The year is 2018
+
 This string has no placeholder
-The files in here are: ./Desktop
+
+The files in here are:
+./Desktop
 ./Documents
 ./Downloads
 ./Music
