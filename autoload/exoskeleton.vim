@@ -22,7 +22,7 @@ endfunction
 "   This year is 2018
 " Note that it takes a single line of a file, not the entire file.
 function! exoskeleton#evaluate_placeholders(contents)
-    execute "let l:match_pattern = '" . g:exoskeleton_start_delimiter . ".*" . g:exoskeleton_end_delimiter . "'"
+    let l:match_pattern = g:exoskeleton_start_delimiter . ".*" . g:exoskeleton_end_delimiter
 
     "Get just the command to evaluate including {{'s"
     let l:command = matchstr(a:contents, l:match_pattern)
