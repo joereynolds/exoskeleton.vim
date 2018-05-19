@@ -25,14 +25,10 @@ Plug 'joereynolds/exoskeleton.vim'
 
 There are two kinds of templates `ft` and `place`.
 
+## ft
+
 `ft` is the traditional skeleton that you're used to, but this time with vimscript!
      Dump your `ft` templates in `~/.vim/exoskeleton/ft` e.g. `~/.vim/exoskeleton/ft/test.php`
-     
-`place` is a mapping to a directory on your filesystem, this is mega handy for the newer
-         frameworks that are cropping up and force you to a specific structure.
-         Dump your `place` templates in `~/.vim/exoskeleton/place`
-
-## ft examples
 
 Any vimscript enclosed in these (configurable) delimiters will be evaluated.
 
@@ -79,6 +75,11 @@ The files in here are:
 ```
 
 ## place examples
+
+`place` is a mapping to a directory on your filesystem, this is mega handy for the newer
+         frameworks that are cropping up and force you to a specific structure.
+         Dump your `place` templates in `~/.vim/exoskeleton/place`
+
 
 (Nested in ~/.vim/exoskeleton/place/home-joe-code-models)
 
