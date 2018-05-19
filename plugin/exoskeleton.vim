@@ -7,9 +7,9 @@ let g:exoskeleton_place_directory = g:exoskeleton_base_directory . 'place/'
 augroup exoskeleton_ft
     "One autocmd per file extension in the ft directory.
     "i.e.
-    "~/.vim/exoskeleton/ft/skel.php
-    "~/.vim/exoskeleton/ft/skel.vim
-    "etc...
+    "    ~/.vim/exoskeleton/ft/skel.php
+    "    ~/.vim/exoskeleton/ft/skel.vim
+    "    etc...
     for filepath in glob(g:exoskeleton_ft_directory . '*', '', 1)
         let filename = fnamemodify(filepath, ':t')
         let extension = fnamemodify(filepath, ':e')
@@ -18,10 +18,11 @@ augroup exoskeleton_ft
 augroup END
 
 augroup exoskeleton_place
-    "Snippets here are a mapping from one directory to another, they have
-    "higher precedence than the ft exoskeletons"
+    "Snippets here are a mapping from one directory to another.
+    "
     "exoskeletons here are in the format of
-    "~/.vim/exoskeleton/place/a-direct-mapping-to-a-directory/file.php
+    "   ~/.vim/exoskeleton/place/a-direct-mapping-to-a-directory/file.php
+    "
     "In the above, any php filetypes within a/direct/mapping/to/a/directory
     "will have that template applied
     for filepath in glob(g:exoskeleton_place_directory . '*', '', 1)
