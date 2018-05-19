@@ -1,13 +1,25 @@
 
 # Exoskeleton - Skeleton improved
 
-I found the skeleton feature in Vim (`:help skeleton`) a bit lacking.
+Open files and evaluates vimscript from a template.
 
-I've extended it in a way that enables custom directories to be treated
+Example:
 
-in a specific way and for you to embed vimscript in as a template.
+```
+The year is {{strftime("%Y")}}
+```
 
-Here we go!
+Transforms to
+
+```
+The year is 2018
+```
+
+# Installation
+
+```
+Plug 'joereynolds/exoskeleton.vim'
+```
 
 # Templates
 
