@@ -10,7 +10,9 @@ function! exoskeleton#get_filetype_for_template(template)
     return fnamemodify(a:template, ':e')
 endfunction
 
-function! exoskeleton#get_placeholder_contents()
+" home-joe-code-models -> /home/joe/code/models
+function! exoskeleton#map_directory(directory)
+    return substitute(a:directory, '-', '/', 'g')
 endfunction
 
 " Returns the evaluated string

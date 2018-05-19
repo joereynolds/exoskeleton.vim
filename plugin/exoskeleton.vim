@@ -26,7 +26,7 @@ augroup exoskeleton_place
     "will have that template applied
     for filepath in glob(g:exoskeleton_place_directory . '*', '', 1)
         let directory = fnamemodify(filepath, ':t')
-        let mapped_directory = substitute(directory, '-', '/', 'g')
+        let mapped_directory = exoskeleton#map_directory(directory)
         let template_path = g:exoskeleton_place_directory . directory .  '/exoskeleton'
         execute 'autocmd BufNewFile ' . '/' . mapped_directory . '/*' . ' :call exoskeleton#insert_content("' . template_path . '")'
     endfor

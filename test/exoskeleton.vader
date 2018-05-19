@@ -4,25 +4,25 @@ Execute (to see if we can evaluate a placeholder at the end of a line);
 
   AssertEqual actual, expected
 
-Execute (to see if we can evaluate a placeholder in the middle of a string);
+Execute (exoskeleton#evaluate_placeholders: should evaluate placeholders in the middle of a string);
   let actual = exoskeleton#evaluate_placeholders('This year is {{strftime("%Y")}} it is')
   let expected = "This year is 2018 it is"
 
   AssertEqual actual, expected
 
-Execute (to see if we can evaluate more complicated placeholders);
+Execute (exoskeleton#evaluate_placeholders: should evaluate more complicated placeholders);
   let actual = exoskeleton#evaluate_placeholders('class {{fnamemodify("app/Models/Area.php", ":t:r")}}')
   let expected = 'class Area'
 
   AssertEqual actual, expected
 
-Execute (to see if a string without a placeholder does not throw an error);
+Execute (exoskeleton#evaluate_placeholders: should not throw an error if theres no placeholder);
   let actual = exoskeleton#evaluate_placeholders('This is a plain old string')
   let expected = 'This is a plain old string'
 
   AssertEqual actual, expected
 
-Execute (to see if placeholders are configurable);
+Execute (exoskeleton#evaluate_placeholders: should handle configurable delimiters);
   let g:exoskeleton_start_delimiter = '\[\['
   let g:exoskeleton_end_delimiter = '\]\]'
 
@@ -35,11 +35,23 @@ Execute (to see if placeholders are configurable);
   let g:exoskeleton_start_delimiter = '{{'
   let g:exoskeleton_end_delimiter = '}}'
 
+Execute (exoskeleton#map_directory: should map directories);
+  let actual = exoskeleton#map_directory('this-should-surely-pass')
+  let expected = 'this/should/surely/pass'
+
+  AssertEqual actual, expected
+
+Execute (to see if our directories are configurable);
+  let g:exoskeleton_base_directory = '/my/exoskeleton/directory/'
+
+  AssertEqual g:exoskeleton_base_directory, '/my/exoskeleton/directory/'
+
+
+
 
 " Tests to write later... I'm sorry TDD :(
 " - Test the augroups are fired when we create a new buffer
 " - Test anything with the extension .exo.* is given an exoskeleton filetype
-" - Test we convert an-exoskeleton-path into/a/normal/one
 " - Test a multiline template
 " - Test a single line with two templates on it
 
