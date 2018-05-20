@@ -35,6 +35,12 @@ Execute (exoskeleton#evaluate_placeholders: should handle configurable delimiter
   let g:exoskeleton_start_delimiter = '{{'
   let g:exoskeleton_end_delimiter = '}}'
 
+Execute(exoskeleton#evaluate_placeholders: should handle multiple placeholders on the same line);
+  let actual = exoskeleton#evaluate_placeholders("This year is {{strftime('%Y')}}, last year was {{strftime('%Y') - 1 }}")
+  let expected = 'This year is 2018, last year was 2017'
+
+  AssertEqual actual, expected
+
 Execute (exoskeleton#map_directory: should map directories);
   let actual = exoskeleton#map_directory('this-should-surely-pass')
   let expected = 'this/should/surely/pass'
@@ -53,5 +59,3 @@ Execute (to see if our directories are configurable);
 " - Test the augroups are fired when we create a new buffer
 " - Test anything with the extension .exo.* is given an exoskeleton filetype
 " - Test a multiline template
-" - Test a single line with two templates on it
-
