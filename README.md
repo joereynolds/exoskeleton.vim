@@ -84,6 +84,7 @@ The files in here are:
 (Nested in ~/.vim/exoskeleton/place/home-joe-code-models)
 
 ```
+// ~/.vim/exoskeleton/place/home-joe-code-models/exoskeleton
 <?php
 
 if (!defined('BASEPATH')) {
